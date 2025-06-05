@@ -9,6 +9,6 @@ class Player(models.Model):
     country = fields.Char(string='country')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender', default='male')
     birth_date = fields.Datetime(string='Date of Birth')
-    position = fields.Char(string='Position')
+    position = fields.Char(string='Position', groups = "module-1.group_player_manager")
     height = fields.Float(string='Height')
     weight = fields.Float(string="Weight")

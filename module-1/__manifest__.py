@@ -16,6 +16,8 @@
     'version': '0.1',
 
     'data': [
+        'security/player_sercurity.xml',
+        'security/ir.model.access.csv',
         'views/player_views.xml'
     ],
 
