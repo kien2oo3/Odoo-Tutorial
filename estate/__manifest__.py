@@ -5,7 +5,8 @@
     'author': "Kien Bui",
     'category': 'Category',
     'description': "This is Real Estate Advertisement",
-    'data':[
-      'views/estate_property_views.xml'
+    'data': [
+        'security/ir.model.access.csv',
+        'views/estate_property_views.xml'
     ],
 }
