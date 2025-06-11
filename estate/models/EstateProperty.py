@@ -2,12 +2,13 @@ from odoo import models, fields
 class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "This is Estate Property"
+    _inherit = 'estate.property.base'
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", required=True, size=10, translate=True)
     description = fields.Text(string="Description")
     postcode = fields.Char(string="Postcode")
     date_availability = fields.Date(string="Date availability")
-    expected_price = fields.Float(string="Expected price", required=True)
+    expected_price = fields.Float(string="Expected price", required=True, digits="test1")
     selling_price = fields.Float(string="Selling price")
     bedrooms = fields.Integer(string="Bedrooms")
     living_area = fields.Integer(string="Living area (sqm)")

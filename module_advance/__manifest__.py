@@ -1,5 +1,5 @@
 {
-    'name': "Real Estate Advertisement",
+    'name': "Module advance",
     'version': '1.0',
     'depends': ['base'],
     'author': "Kien Bui",
@@ -8,8 +8,8 @@
     'license': 'LGPL-3',
     'data': [
         'security/ir.model.access.csv',
-        'views/menus.xml',
-        'views/estate_property_transient_views.xml',
-        'views/estate_property_views.xml',
+        'views/people_action.xml',
+        'views/people_menu.xml',
+        'views/people_view.xml',
     ],
 }

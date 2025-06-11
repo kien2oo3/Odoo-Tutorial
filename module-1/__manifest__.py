@@ -5,6 +5,7 @@
     'summary': 'Module quản lý thông tin cầu thủ',
 
     'description': 'Module này cho phép quản lý thông tin về cầu thủ, bao gồm các thông tin như tên, quốc gia, vị trí, chiều cao, cân nặng và hình ảnh.',
+    'license': 'LGPL-3',
 
     'author': "KienIoT",
     'website': "https://www.yourcompany.com",

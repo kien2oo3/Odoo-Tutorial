@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Định nghĩa menu chính -->
+    <menuitem id="estate_menu" name="Estate" sequence="10" action="action_estate_property"/>
+
+    <!-- Định nghĩa menu con -->
+    <menuitem id="estate_property_menu" name="New estate" action="action_estate_property_transient" parent="estate_menu" sequence="1"/>
+</odoo>

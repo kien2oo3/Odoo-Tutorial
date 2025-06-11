@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="people_menu" name="People" sequence="11" action="action_people"/>
+</odoo>

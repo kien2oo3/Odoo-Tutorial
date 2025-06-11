@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_student_student" model="ir.actions.act_window">
+        <field name="name">List student</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="student_student_menu" name="Student Management" action="action_student_student"/>
+</odoo>

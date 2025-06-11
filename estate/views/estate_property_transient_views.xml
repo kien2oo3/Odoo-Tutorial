@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="estate_property_transient_form_view" model="ir.ui.view">
+        <field name="name">estate.property.transient.form</field>
+        <field name="model">estate.property.transient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="expected_price"/>
+                    </group>
+                    <footer>
+                        <button string="Create" type="object" name="action_create_estate_property" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_estate_property_transient" model="ir.actions.act_window">
+        <field name="name">New Property</field>
+        <field name="res_model">estate.property.transient</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="estate_property_transient_form_view"/>
+        <field name="target">new</field>
+    </record>
+</odoo>
