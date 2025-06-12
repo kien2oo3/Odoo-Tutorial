@@ -23,16 +23,21 @@
 <!--                    <header>-->
 <!--                        <button name="custom_method" type="object" string="Custom method" class="btn-primary"/>-->
 <!--                    </header>-->
+                    <header>
+                        <button name="action_show_student_partners" type="object" string="Show partners" class="btn-primary"/>
+                    </header>
                     <group>
                         <group>
                             <field name="student_id"/>
                             <field name="name"/>
                             <field name="display_name" readonly="1"/>
+                            <field name="class_id"/>
                         </group>
                         <group>
                             <field name="birth_date"/>
                             <field name="email"/>
                             <field name="phone_number"/>
+                            <field name="course_ids"/>
                         </group>
                     </group>
                 </sheet>

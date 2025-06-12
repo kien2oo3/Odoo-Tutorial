@@ -5,6 +5,4 @@
         <field name="res_model">student.student</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="student_student_menu" name="Student Management" action="action_student_student"/>
 </odoo>

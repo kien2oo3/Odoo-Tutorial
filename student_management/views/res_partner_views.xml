@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="partner_form_view_inherit_student_management" model="ir.ui.view">
+        <field name="name">partner.form.inherit.student.management</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="is_student"/>
+                <field name="student_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="partner_list_view_inherit_student_management" model="ir.ui.view">
+        <field name="name">partner.list.inherit.student.management</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="before">
+                <field name="is_student"/>
+                <field name="student_id" attrs="{'invisible':[('is_student', '!=', True)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_partner_sm" model="ir.actions.act_window">
+        <field name="name">Partner</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
