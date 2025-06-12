@@ -11,6 +11,7 @@
                 <field name="birth_date"/>
                 <field name="email"/>
                 <field name="phone_number"/>
+                <field name="book_ids"/>
             </tree>
         </field>
     </record>
@@ -38,6 +39,7 @@
                             <field name="email"/>
                             <field name="phone_number"/>
                             <field name="course_ids"/>
+                            <field name="book_ids"/>
                         </group>
                     </group>
                 </sheet>

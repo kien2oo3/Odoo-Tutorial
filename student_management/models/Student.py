@@ -18,6 +18,8 @@ class Student(models.Model):
     course_ids = fields.Many2many('school.course', string='Courses')
     # One2many
     partner_ids = fields.One2many('res.partner', 'student_id', string='Student partners')
+    # On2Many
+    book_ids = fields.One2many('library.book', 'student_id', string='Library books')
 
     @api.model_create_multi
     def create(self, vals):

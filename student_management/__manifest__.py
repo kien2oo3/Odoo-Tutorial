@@ -15,6 +15,7 @@
         'views/class_views.xml',
         'views/course_views.xml',
         'views/res_partner_views.xml',
+        'views/library_book_views.xml',
         'views/menu.xml',
     ]
 }
