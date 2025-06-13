@@ -18,7 +18,12 @@ class Student(models.Model):
     course_ids = fields.Many2many('school.course', string='Courses')
     # One2many
     partner_ids = fields.One2many('res.partner', 'student_id', string='Student partners')
+    # On2Many
+    book_ids = fields.One2many('library.book', 'student_id', string='Library books')
 
+    book_count = fields.Integer(string='Book count', compute='_get_book_count', store=True)
+
+    # Ghi đè hàm create
     @api.model_create_multi
     def create(self, vals):
         print("Create method called!")
@@ -30,6 +35,7 @@ class Student(models.Model):
             student.display_name = f'{student.student_id} - {student.name}'
         return students
 
+    # Ghi đè hàm write
     def write(self, vals):
         print("Write method called!")
         print(self)
@@ -43,6 +49,7 @@ class Student(models.Model):
                 student.display_name = f'{studentId} - {studentName}'
         return rs
 
+    # Hàm check student_id unique
     @api.constrains('student_id')
     def _check_unique_student_id(self):
         print("Call check unique student_id method")
@@ -59,16 +66,38 @@ class Student(models.Model):
         print(self.env['student.student'])
         print(self.env['student.student'].create({'student_id': 'STU006', 'name': 'Trần Dự'}))
 
+    # Hàm action hiển thị danh các liên hệ của sinh viên
     def action_show_student_partners(self):
         # Lấy ra tất cả partner id gắn với sv
         partner_ids = self.partner_ids.ids
         return {
-            'name': 'Partners',               # Tiêu đề của sổ
-            'type': 'ir.actions.act_window',          # Loại hành động
-            'res_model': 'res.partner',               # Model sẽ hiển thị
-            'view_mode': 'tree,form',                 # Chế độ xem
-            'domain': [('id', 'in', partner_ids)],    # Lọc theo id liên hệ
-            'target': 'current'                       # Mở trong cửa sổ hiện tại
+            'name': 'Partners',  # Tiêu đề của sổ
+            'type': 'ir.actions.act_window',  # Loại hành động
+            'res_model': 'res.partner',  # Model sẽ hiển thị
+            'view_mode': 'tree,form',  # Chế độ xem
+            'domain': [('id', 'in', partner_ids)],  # Lọc theo id liên hệ
+            'target': 'current'  # Mở trong cửa sổ hiện tại
+        }
+
+    # Hàm lấy số lượng sdasch sinh viên mượn
+    @api.depends('book_ids')
+    def _get_book_count(self):
+        for record in self:
+            record.book_count = len(record.book_ids)
+
+    # Hàm action hiển thị danh sách các cuốn sách mượn
+    def action_show_info_book(self):
+        bookIds = self.book_ids.ids
+
+        return {
+            'name': f'Student books',
+            'type': 'ir.actions.act_window',
+            'res_model': 'library.book',
+            'domain': [('id', 'in', bookIds)],
+            'views': [
+                (self.env.ref('student_management.library_book_tree_view_readonly').id, 'tree'), # Gán view tree chỉ đọc
+            ],
+            'target': 'current'
         }
 
 
