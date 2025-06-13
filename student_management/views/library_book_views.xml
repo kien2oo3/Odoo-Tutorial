@@ -37,7 +37,7 @@
         <field name="name">library.book.kanban</field>
         <field name="model">library.book</field>
         <field name="arch" type="xml">
-            <kanba class="o_res_partner_kanban">
+            <kanban class="o_res_partner_kanban">
                 <field name="student_id"/>
                 <field name="book_name"/>
                 <field name="student_count"/>
@@ -58,7 +58,7 @@
                         </div>
                     </t>
                 </templates>
-            </kanba>
+            </kanban>
         </field>
     </record>
 
@@ -66,5 +66,20 @@
         <field name="name">Library book</field>
         <field name="res_model">library.book</field>
         <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!--    View show chi tiết cuốn sách mà sinh viên đã mượn trong bảng sinh viên-->
+    <record id="library_book_tree_view_readonly" model="ir.ui.view">
+        <field name="name">library.book.tree.readonly</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree string="Books" create="false" edit="false" delete="false">
+                <field name="book_id"/>
+                <field name="book_name"/>
+                <field name="publish_year"/>
+                <field name="book_author"/>
+                <field name="student_id"/>
+            </tree>
+        </field>
     </record>
 </odoo>

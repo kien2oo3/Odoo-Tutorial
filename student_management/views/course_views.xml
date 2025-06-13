@@ -29,4 +29,10 @@
             </form>
         </field>
     </record>
+
+    <record id="action_school_course" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">school.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 </odoo>

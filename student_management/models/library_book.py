@@ -7,7 +7,7 @@ class LibraryBook(models.Model):
 
     book_id = fields.Char(string='Book Id')
     book_name = fields.Char(string='Book name', required=True)
-    publish_year = fields.Integer(string='Publish year')
+    publish_year = fields.Char(string='Publish year')
     book_author = fields.Char(string='Book author')
 
     student_id = fields.Many2one('student.student', string='Student')
@@ -18,7 +18,8 @@ class LibraryBook(models.Model):
     def create(self, vals_list):
         rs = super().create(vals_list)
         for record in rs:
-            record.book_id = f'TV{10000 + record.id}'
+            numberId = str(100000 + record.id)[1:]
+            record.book_id = f'TV{numberId}'
         return rs
 
     # Hàm lấy số lượng sinh viên mượn sách
@@ -29,4 +30,5 @@ class LibraryBook(models.Model):
 
     # Check mã sách trùng khi thêm mới
     _sql_constraints = [('unique_book_id', 'unique(book_id)', 'Mã sách đã tồn tại, hãy nhập một mã sách khác')]
+
 
