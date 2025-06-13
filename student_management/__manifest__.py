@@ -8,9 +8,6 @@
     'license': 'LGPL-3',
     'data':[
         'security/ir.model.access.csv',
-        'controllers/StudentController.xml',
-        'controllers/ClassController.xml',
-        'controllers/CourseController.xml',
         'views/student_views.xml',
         'views/class_views.xml',
         'views/course_views.xml',
