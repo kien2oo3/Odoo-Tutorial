@@ -13,6 +13,7 @@
                 <field name="phone_number"/>
                 <field name="book_ids"/>
                 <field name="book_count"/>
+                <field name="user_id"/>
                 <button name="action_show_info_book" string="Show books" type="object" class="btn-primary"/>
             </tree>
         </field>
@@ -39,6 +40,7 @@
                             <field name="birth_date"/>
                             <field name="email"/>
                             <field name="phone_number"/>
+                            <field name="user_id"/>
                         </group>
                     </group>
                     <notebook>

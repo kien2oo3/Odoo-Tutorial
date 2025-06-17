@@ -7,7 +7,9 @@
     'description': "This is Module student management",
     'license': 'LGPL-3',
     'data':[
+        'security/groups.xml',
         'security/ir.model.access.csv',
+        'security/ir.rule.xml',
         'views/student_views.xml',
         'views/class_views.xml',
         'views/course_views.xml',

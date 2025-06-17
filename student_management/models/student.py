@@ -18,10 +18,16 @@ class Student(models.Model):
     course_ids = fields.Many2many('school.course', string='Courses')
     # One2many
     partner_ids = fields.One2many('res.partner', 'student_id', string='Student partners')
-    # On2Many
+    # One2Many
     book_ids = fields.One2many('library.book', 'student_id', string='Library books')
+    # Many2one
+    user_id = fields.Many2one('res.users', 'User')
 
     book_count = fields.Integer(string='Book count', compute='_get_book_count', store=True)
+
+    _sql_constraints = [
+        ('user_id_unique','unique(user_id)','Mỗi sinh viên chỉ liên kết với 1 người dùng duy nhất')
+    ]
 
     # Ghi đè hàm create
     @api.model_create_multi
@@ -95,7 +101,8 @@ class Student(models.Model):
             'res_model': 'library.book',
             'domain': [('id', 'in', bookIds)],
             'views': [
-                (self.env.ref('student_management.library_book_tree_view_readonly').id, 'tree'), # Gán view tree chỉ đọc
+                (self.env.ref('student_management.library_book_tree_view_readonly').id, 'tree'),
+                # Gán view tree chỉ đọc
             ],
             'target': 'current'
         }
@@ -110,6 +117,17 @@ class SchoolClass(models.Model):
 
     # One2many
     student_ids = fields.One2many('student.student', 'class_id', string='Students')
+
+    def write(self, vals):
+        print(f'Self: {self}')
+        print(f'Vals: {vals}')
+        rs = super(SchoolClass, self).write(vals)
+        print(f'rs: {rs}')
+        return rs
+
+    @api.model
+    def abc(self):
+        print(self)
 
 
 class SchoolCourse(models.Model):

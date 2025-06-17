@@ -4,8 +4,8 @@
         <field name="name">library.book.tree</field>
         <field name="model">library.book</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="book_id"/>
+            <tree editable="bottom">
+<!--                <field name="book_id"/>-->
                 <field name="book_name"/>
                 <field name="publish_year"/>
                 <field name="book_author"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <menuitem id="student_student_menu" name="Student Management" action="action_student_student"/>
-    <menuitem id="student_student_submenu" name="Student" action="action_student_student" parent="student_student_menu"/>
-    <menuitem id="school_class_menu" name="Class" action="action_school_class" parent="student_student_menu"/>
-    <menuitem id="school_course_menu" name="Course" action="action_school_course" parent="student_student_menu"/>
-    <menuitem id="student_partner_menu" name="Partner" action="action_partner_sm" parent="student_student_menu"/>
-    <menuitem id="library_book_menu" name="Book" action="action_library_book" parent="student_student_menu"/>
+    <menuitem id="menu_root_student_management" name="Student Management"/>
+    <menuitem id="menu_student_student" name="Student" action="action_student_student" parent="menu_root_student_management" groups="student_management.group_student_user,student_management.group_student_manager,student_management.group_library_staff"/>
+    <menuitem id="menu_school_class" name="Class" action="action_school_class" parent="menu_root_student_management" groups="student_management.group_student_manager"/>
+    <menuitem id="menu_school_course" name="Course" action="action_school_course" parent="menu_root_student_management" groups="student_management.group_student_manager"/>
+    <menuitem id="menu_student_partner" name="Partner" action="action_partner_sm" parent="menu_root_student_management" groups="student_management.group_student_manager"/>
+    <menuitem id="menu_library_book" name="Book" action="action_library_book" parent="menu_root_student_management" groups="student_management.group_library_staff,student_management.group_student_manager,student_management.group_student_user"/>
 </odoo>
